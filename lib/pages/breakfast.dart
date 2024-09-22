@@ -1,4 +1,4 @@
-import 'package:fitness_help_app/models/breakfast/category_model.dart';
+import 'package:fitness_help_app/models/breakfast/category_breakfast_model.dart';
 import 'package:fitness_help_app/models/breakfast/breakfast_diet_model.dart';
 import 'package:fitness_help_app/models/breakfast/popular_breakfast_model.dart';
 import 'package:flutter/material.dart';

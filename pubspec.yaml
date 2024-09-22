@@ -1,4 +1,4 @@
-name: fitness_help_app
+name: Fitness Meal Helper
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -47,12 +47,30 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.1.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
+
+  flutter_icons:
+    android: true
+    ios: true
+    image_path: "assets/images/app_logo.png"  # Path ke logo Anda
+    adaptive_icon_background: "#ffffff"  # Warna background (untuk Android)
+    adaptive_icon_foreground: "assets/logo/fitness-meal-logo.png"
+
+  flutter_native_splash:
+    color: "#ffffff"  # Background color of the splash screen
+    image: assets/logo/file(1).png  # Path ke file logo
+    android: true
+    ios: true
+    web: true
+    android_gravity: center  # Penempatan logo di Android
+    ios_content_mode: center  # Penempatan logo di iOS
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -36,7 +36,7 @@ class PopularDietsModel {
        level: 'Easy',
        duration: '20mins',
        calorie: '120kCal',
-       boxIsSelected: false,
+       boxIsSelected: true,
       )
     );
 

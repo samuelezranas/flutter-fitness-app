@@ -1,4 +1,4 @@
-import 'package:fitness_help_app/models/breakfast/category_model.dart';
+import 'package:fitness_help_app/models/lunch/category_lunch_model.dart';
 import 'package:fitness_help_app/models/lunch/lunch_diet_model.dart';
 import 'package:fitness_help_app/models/lunch/popular_lunch_model.dart';
 import 'package:flutter/material.dart';

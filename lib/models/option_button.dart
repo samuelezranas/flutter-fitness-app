@@ -17,7 +17,7 @@ class OptionButton extends StatelessWidget {
       child: ListView.separated(
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.only(left: 20, right: 20),
+        padding: const EdgeInsets.only(left: 40, right: 40),
         separatorBuilder: (context, index) => const SizedBox(width: 25),
         itemBuilder: (context, index) {
           return GestureDetector(

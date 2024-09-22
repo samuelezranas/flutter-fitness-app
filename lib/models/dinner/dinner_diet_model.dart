@@ -24,24 +24,12 @@ class DietModel {
 
     diets.add(
       DietModel(
-       name: 'Honey Pancake',
-       iconPath: 'assets/icons/honey-pancakes.svg',
-       level: 'Easy',
-       duration: '30mins',
-       calorie: '180kCal',
-       viewIsSelected: true,
-       boxColor: Color(0xff9DCEFF)
-      )
-    );
-
-    diets.add(
-      DietModel(
-       name: 'Canai Bread',
-       iconPath: 'assets/icons/canai-bread.svg',
+       name: 'Salmon Nigiri',
+       iconPath: 'assets/icons/salmon-nigiri.svg',
        level: 'Easy',
        duration: '20mins',
-       calorie: '230kCal',
-       viewIsSelected: false,
+       calorie: '120kCal',
+       viewIsSelected: true,
        boxColor: Color(0xffEEA4CE)
       )
     );
