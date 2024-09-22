@@ -1,4 +1,4 @@
-import 'package:fitness/pages/home.dart';
+import 'package:fitness_help_app/pages/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Fitness Diet App",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
       home: HomePage()
