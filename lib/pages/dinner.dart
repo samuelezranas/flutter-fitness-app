@@ -1,9 +1,10 @@
-import 'package:fitness_help_app/models/dinner/category_dinner_model.dart';
-import 'package:fitness_help_app/models/dinner/dinner_diet_model.dart';
-import 'package:fitness_help_app/models/dinner/popular_dinner_model.dart';
+import 'package:fitness_meal_helper/models/dinner/category_dinner_model.dart';
+import 'package:fitness_meal_helper/models/dinner/dinner_diet_model.dart';
+import 'package:fitness_meal_helper/models/dinner/popular_dinner_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// ignore: must_be_immutable
 class DinnerPage extends StatelessWidget {
   DinnerPage({super.key});
 
@@ -91,7 +92,7 @@ class DinnerPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              popularDiets[index].level + ' | ' + popularDiets[index].duration + ' | ' + popularDiets[index].calorie,
+                              '${popularDiets[index].level} | ${popularDiets[index].duration} | ${popularDiets[index].calorie}',
                               style: const TextStyle(
                                 color: Color(0xff7B6F72),
                                 fontSize: 13,
@@ -137,7 +138,7 @@ class DinnerPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15,),
-            Container(
+            SizedBox(
               height: 240,
               child: ListView.separated(
                 itemBuilder: (context, index) {
@@ -162,7 +163,7 @@ class DinnerPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              diets[index].level + ' | ' + diets[index].duration + ' | ' + diets[index].calorie,
+                              '${diets[index].level} | ${diets[index].duration} | ${diets[index].calorie}',
                               style: const TextStyle(
                                 color: Color(0xff7B6F72),
                                 fontSize: 13,
@@ -227,7 +228,7 @@ class DinnerPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15,),
-            Container(
+            SizedBox(
               height: 120,
               child: ListView.separated(
                 itemCount: categories.length,
@@ -303,7 +304,7 @@ class DinnerPage extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: SvgPicture.asset('assets/icons/Search.svg'),
               ),
-              suffixIcon: Container(
+              suffixIcon: SizedBox(
                 width: 100,
                 child: IntrinsicHeight(
                   child: Row(

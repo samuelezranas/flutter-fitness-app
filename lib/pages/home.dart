@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_help_app/models/option_button.dart'; // Pastikan path import sesuai
+import 'package:fitness_meal_helper/models/option_button.dart'; // Pastikan path import sesuai
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

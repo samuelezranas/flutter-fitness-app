@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_help_app/pages/breakfast.dart';
-import 'package:fitness_help_app/pages/lunch.dart';
-import 'package:fitness_help_app/pages/dinner.dart';
+import 'package:fitness_meal_helper/pages/breakfast.dart';
+import 'package:fitness_meal_helper/pages/lunch.dart';
+import 'package:fitness_meal_helper/pages/dinner.dart';
 
 class OptionButton extends StatelessWidget {
   final List<Button> categories = [
-    Button(name: 'Breakfast', color: Color(0xff9DCEFF), page: BreakfastPage()),
-    Button(name: 'Lunch', color: Color(0xFFFFF89D), page: LunchPage()),
-    Button(name: 'Dinner', color: Color(0xffEEA4CE), page: DinnerPage()),
+    Button(name: 'Breakfast', color: const Color(0xff9DCEFF), page: BreakfastPage()),
+    Button(name: 'Lunch', color: const Color(0xFFFFF89D), page: LunchPage()),
+    Button(name: 'Dinner', color: const Color(0xffEEA4CE), page: DinnerPage()),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 120,
       child: ListView.separated(
         itemCount: categories.length,
