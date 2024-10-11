@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: "Fitness Diet App",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: HomePage()
+      home: const HomePage()
     );
   }
 }
