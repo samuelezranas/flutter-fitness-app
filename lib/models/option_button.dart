@@ -3,7 +3,14 @@ import 'package:fitness_meal_helper/pages/breakfast.dart';
 import 'package:fitness_meal_helper/pages/lunch.dart';
 import 'package:fitness_meal_helper/pages/dinner.dart';
 
-class OptionButton extends StatelessWidget {
+class OptionButton extends StatefulWidget {
+  const OptionButton({super.key});
+
+  @override
+  State<OptionButton> createState() => _OptionButtonState();
+}
+
+class _OptionButtonState extends State<OptionButton> {
   final List<Button> categories = [
     Button(name: 'Breakfast', color: const Color(0xff9DCEFF), page: BreakfastPage()),
     Button(name: 'Lunch', color: const Color(0xFFFFF89D), page: LunchPage()),

@@ -23,7 +23,7 @@ class DietPage extends StatelessWidget {
             const SizedBox(height: 40), // Jarak antara teks dan tombol
             Container(
               alignment: Alignment.center, // Memastikan tombol berada di tengah
-              child: OptionButton(), // Memanggil widget OptionButton
+              child: const OptionButton(), // Memanggil widget OptionButton
             ),
           ],
         ),
