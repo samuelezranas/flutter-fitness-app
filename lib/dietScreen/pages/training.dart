@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class WorkoutPage extends StatelessWidget {
-  const WorkoutPage({super.key});
+class TrainingPage extends StatelessWidget {
+  const TrainingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Welcome to the Workout Page'),
+      child: Text('Welcome to the Training Page'),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_meal_helper/models/option_button.dart'; // Pastikan path import sesuai
+import 'package:fitness_meal_helper/dietScreen/models/option_button.dart'; // Pastikan path import sesuai
 
 class DietPage extends StatelessWidget {
   const DietPage({super.key});

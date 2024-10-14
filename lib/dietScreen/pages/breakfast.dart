@@ -1,6 +1,6 @@
-import 'package:fitness_meal_helper/models/breakfast/category_breakfast_model.dart';
-import 'package:fitness_meal_helper/models/breakfast/breakfast_diet_model.dart';
-import 'package:fitness_meal_helper/models/breakfast/popular_breakfast_model.dart';
+import 'package:fitness_meal_helper/dietScreen/models/breakfast/category_breakfast_model.dart';
+import 'package:fitness_meal_helper/dietScreen/models/breakfast/breakfast_diet_model.dart';
+import 'package:fitness_meal_helper/dietScreen/models/breakfast/popular_breakfast_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

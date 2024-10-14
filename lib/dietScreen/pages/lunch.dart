@@ -1,12 +1,12 @@
-import 'package:fitness_meal_helper/models/dinner/category_dinner_model.dart';
-import 'package:fitness_meal_helper/models/dinner/dinner_diet_model.dart';
-import 'package:fitness_meal_helper/models/dinner/popular_dinner_model.dart';
+import 'package:fitness_meal_helper/dietScreen/models/lunch/category_lunch_model.dart';
+import 'package:fitness_meal_helper/dietScreen/models/lunch/lunch_diet_model.dart';
+import 'package:fitness_meal_helper/dietScreen/models/lunch/popular_lunch_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore: must_be_immutable
-class DinnerPage extends StatelessWidget {
-  DinnerPage({super.key});
+class LunchPage extends StatelessWidget {
+  LunchPage({super.key});
 
   List<CategoryModel> categories = [];
   List<DietModel> diets = [];
@@ -129,7 +129,7 @@ class DinnerPage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left:20),
               child: Text(
-                'Recommendation for Diet',
+                'Recommendation\nfor Diet',
                   style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -336,7 +336,7 @@ class DinnerPage extends StatelessWidget {
   AppBar appBar() {
     return AppBar(
       title: const Text(
-        'Dinner',
+        'Lunch',
         style: TextStyle(
           color: Colors.black,
           fontSize: 18,

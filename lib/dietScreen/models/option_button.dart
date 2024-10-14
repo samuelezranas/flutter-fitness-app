@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fitness_meal_helper/pages/breakfast.dart';
-import 'package:fitness_meal_helper/pages/lunch.dart';
-import 'package:fitness_meal_helper/pages/dinner.dart';
+import 'package:fitness_meal_helper/dietScreen/pages/breakfast.dart';
+import 'package:fitness_meal_helper/dietScreen/pages/lunch.dart';
+import 'package:fitness_meal_helper/dietScreen/pages/dinner.dart';
 
 class OptionButton extends StatefulWidget {
   const OptionButton({super.key});
