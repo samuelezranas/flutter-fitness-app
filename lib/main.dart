@@ -1,6 +1,5 @@
 import 'package:fitness_meal_helper/dietScreen/diet.dart';
-import 'package:fitness_meal_helper/dietScreen/pages/training.dart';
-import 'package:fitness_meal_helper/favoriteScreen/favorite.dart';
+import 'package:fitness_meal_helper/trainingScreen/training.dart';
 import 'package:fitness_meal_helper/homeScreen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_meal_helper/widgets/bottom_navbar.dart';
@@ -37,7 +36,6 @@ class _MainScreenState extends State<MainScreen> {
     const HomePage(),
     const TrainingPage(),
     const DietPage(),
-    const FavoritePage(),
   ];
 
   void _onItemTapped(int index) {
