@@ -119,7 +119,7 @@ var trainingModelList = [
     openDays: 'Everyday',
     openTime: '09:00 - 17:00',
     ticketPrice: 'Rp 20000',
-    imageAsset: 'assets/images/floating-market.png',
+    imageAsset: 'assets/images/mountain-climbers.webp',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/17/f9/ff/f8/floating-market-bandung.jpg',
       'https://media-cdn.tripadvisor.com/media/photo-p/1a/86/d3/cd/20200103-125059-largejpg.jpg',
@@ -134,26 +134,11 @@ var trainingModelList = [
     openDays: 'Everyday',
     openTime: '07:00 - 17:00',
     ticketPrice: 'Rp 15000',
-    imageAsset: 'assets/images/kawah-putih.jpg',
+    imageAsset: 'assets/images/leg-raises.jpg',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/0b/6e/7c/ce/rocks-sticking-out-of.jpg',
       'https://media-cdn.tripadvisor.com/media/photo-p/0b/35/30/14/white-crater.jpg',
       'https://media-cdn.tripadvisor.com/media/photo-o/0a/8b/9a/79/2945-t00572-www-initempatwisat.jpg',
-    ],
-  ),
-  TrainingModel(
-    name: 'Ranca Upas',
-    category: 'Ciwidey',
-    description:
-        'Ranca Upas Ciwidey adalah kawasan bumi perkemahan di bawah pengelolaan perhutani. Tempat ini berada di kawasan wisata Bandung Selatan, satu lokasi dengan kawah putih, kolam Cimanggu dan situ Patenggang. Banyak hal yang bisa dilakukan di kawasan wisata ini, seperti berkemah, berinteraksi dengan rusa, sampai bermain di water park dan mandi air panas.',
-    openDays: 'Everyday',
-    openTime: '24 hours',
-    ticketPrice: 'Rp 20000',
-    imageAsset: 'assets/images/ranca-upas.jpg',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-o/1a/e0/7f/9c/kampung-cai-ranca-upas.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-w/13/ee/2f/87/ranca-upas.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-w/13/ee/27/0a/ranca-upas.jpg',
     ],
   ),
 ];
