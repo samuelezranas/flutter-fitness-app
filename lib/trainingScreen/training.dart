@@ -1,9 +1,42 @@
+import 'package:fitness_meal_helper/themes.dart';
 import 'package:fitness_meal_helper/trainingScreen/detail_training.dart';
 import 'package:fitness_meal_helper/trainingScreen/model/training_model.dart';
 import 'package:flutter/material.dart';
 
-class TrainingPage extends StatelessWidget {
+class TrainingPage extends StatefulWidget {
   const TrainingPage({super.key});
+
+  @override
+  _TrainingPageState createState() => _TrainingPageState();
+}
+
+class _TrainingPageState extends State<TrainingPage> {
+  final ScrollController _scrollController = ScrollController();
+  Color _appBarTextColor = kPrimaryColor; // Warna teks default di AppBar
+  Color _appBarBackgroundColor = Colors.transparent; // Warna latar belakang default
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() {
+        // Ubah warna latar belakang dan warna teks berdasarkan posisi scroll
+        if (_scrollController.offset > 100) {
+          _appBarTextColor = Colors.white; // Ubah menjadi putih ketika scroll
+          _appBarBackgroundColor = kPrimaryColor; // Ubah latar belakang menjadi oranye
+        } else {
+          _appBarTextColor = kPrimaryColor; // Kembali ke oranye
+          _appBarBackgroundColor = Colors.transparent; // Kembali ke transparan
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,23 +44,34 @@ class TrainingPage extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Training'),
+            title: Text(
+              'Training',
+              style: TextStyle(color: _appBarTextColor), // Menggunakan warna teks dari variabel
+            ),
+            backgroundColor: _appBarBackgroundColor, // Warna latar belakang
+            elevation: 0, // Menghilangkan bayangan
           ),
-          body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              if (constraints.maxWidth <= 600) {
-                return const TrainingModelList();
-              } else if (constraints.maxWidth <= 1200) {
-                return const TrainingModelGrid(gridCount: 4);
-              } else {
-                return const TrainingModelGrid(gridCount: 6);
-              }
-            },
+          body: SingleChildScrollView(
+            controller: _scrollController, // Mengatur controller untuk scroll
+            child: Padding(
+              padding: const EdgeInsets.all(16.0), // Padding di luar grid
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  if (constraints.maxWidth <= 600) {
+                    return const TrainingModelList();
+                  } else if (constraints.maxWidth <= 1200) {
+                    return const TrainingModelGrid(gridCount: 4);
+                  } else {
+                    return const TrainingModelGrid(gridCount: 6);
+                  }
+                },
+              ),
+            ),
           ),
         );
       },
     );
-  }  
+  }
 }
 
 class TrainingModelGrid extends StatelessWidget {
@@ -37,52 +81,53 @@ class TrainingModelGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
-      child: GridView.count(
-        crossAxisCount: gridCount,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        children: trainingModelList.map((place) {
-          return InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DetailScreen(place: place);
-              }));
-            },
-            child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: Image.asset(
-                      place.imageAsset,
-                      fit: BoxFit.fill,
+    return GridView.count(
+      crossAxisCount: gridCount,
+      crossAxisSpacing: 16,
+      mainAxisSpacing: 16,
+      childAspectRatio: 1, // Ubah sesuai kebutuhan
+      shrinkWrap: true, // Menghindari overflow di dalam GridView
+      physics: const NeverScrollableScrollPhysics(), // Menonaktifkan scroll di GridView
+      children: trainingModelList.map((training) {
+        return InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return DetailScreen(training: training);
+            }));
+          },
+          child: Card(
+            child: Column(
+              mainAxisSize: MainAxisSize.min, // Ambil hanya ruang yang diperlukan
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: Image.asset(
+                    training.imageAsset,
+                    fit: BoxFit.cover, // Menggunakan BoxFit.cover untuk memperbesar gambar
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2.0), // Padding horizontal
+                  child: Text(
+                    training.name,
+                    style: const TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      place.name,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
+                  child: Text(
+                    training.category,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                    child: Text(
-                      place.location,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
-        }).toList(),
-      ),
+          ),
+        );
+      }).toList(),
     );
   }
 }
@@ -92,61 +137,55 @@ class TrainingModelList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Membuat grid dengan 2 kolom
-          crossAxisSpacing: 8.0, // Jarak horizontal antar grid
-          mainAxisSpacing: 8.0, // Jarak vertikal antar grid
-          childAspectRatio: 3 / 2, // Rasio lebar-tinggi dari setiap grid item
-        ),
-        itemBuilder: (context, index) {
-          final TrainingModel place = trainingModelList[index];
-          return InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DetailScreen(place: place);
-              }));
-            },
-            child: Card(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    flex: 2,
-                    child: Image.asset(
-                      place.imageAsset,
-                      fit: BoxFit.fill, // Menyesuaikan gambar agar tidak terpotong
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            place.name,
-                            style: const TextStyle(fontSize: 16.0),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(place.location),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-        itemCount: trainingModelList.length,
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 16.0,
+        mainAxisSpacing: 16.0,
+        childAspectRatio: 1, // Ubah sesuai kebutuhan
       ),
+      itemBuilder: (context, index) {
+        final TrainingModel training = trainingModelList[index];
+        return InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return DetailScreen(training: training);
+            }));
+          },
+          child: Card(
+            child: Column(
+              mainAxisSize: MainAxisSize.min, // Ambil hanya ruang yang diperlukan
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Image.asset(
+                    training.imageAsset,
+                    fit: BoxFit.cover, // Menggunakan BoxFit.cover untuk memperbesar gambar
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(2.0), // Padding di sekitar konten
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        training.name,
+                        style: const TextStyle(fontSize: 16.0),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(training.category),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+      itemCount: trainingModelList.length,
+      shrinkWrap: true, // Menghindari overflow di dalam GridView
+      physics: const NeverScrollableScrollPhysics(), // Menonaktifkan scroll di GridView
     );
   }
 }
-

@@ -7,18 +7,18 @@ import 'package:flutter/foundation.dart';
 var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
 class DetailScreen extends StatelessWidget {
-  final TrainingModel place;
+  final TrainingModel training;
 
-  const DetailScreen({super.key, required this.place});
+  const DetailScreen({super.key, required this.training});
 
   @override
     Widget build(BuildContext context) {
       return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           if (constraints.maxWidth > 800) {
-            return DetailWebPage(place: place);
+            return DetailWebPage(training: training);
           } else {
-            return DetailMobilePage(place: place);
+            return DetailMobilePage(training: training);
           }
         },
       );
@@ -40,8 +40,8 @@ class _FavoriteButtonState extends State<FavoriteButton> {
   Widget build(BuildContext context) {
     return IconButton(
       icon: Icon(
-        isFavorite ? Icons.favorite : Icons.favorite_border,
-        color: Colors.pink,
+        isFavorite ? Icons.star : Icons.star_border_outlined,
+        color: Colors.orange,
       ),
       onPressed: () {
         setState(() {
@@ -53,9 +53,9 @@ class _FavoriteButtonState extends State<FavoriteButton> {
 }
 
 class DetailMobilePage extends StatelessWidget {
-  final TrainingModel place;
+  final TrainingModel training;
 
-  const DetailMobilePage({super.key, required this.place});
+  const DetailMobilePage({super.key, required this.training});
   @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -65,7 +65,7 @@ class DetailMobilePage extends StatelessWidget {
             children: <Widget>[
               Stack(
                 children: <Widget>[
-                  Image.asset(place.imageAsset),
+                  Image.asset(training.imageAsset),
                   SafeArea(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -92,9 +92,9 @@ class DetailMobilePage extends StatelessWidget {
                 ],
               ),
               Container(
-                margin: const EdgeInsets.only(top: 16.0),
+                margin: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Text(
-                  place.name,
+                  training.name,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 30.0,
@@ -103,50 +103,36 @@ class DetailMobilePage extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        const Icon(Icons.date_range_outlined),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          place.openDays,
-                          style: informationTextStyle,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        const Icon(Icons.schedule),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          place.openTime,
-                          style: informationTextStyle,
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        const Icon(Icons.payments_outlined),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          place.ticketPrice,
-                          style: informationTextStyle,
-                        ),
-                      ],
-                    )
-                  ],
+                padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
+                child: const Text(
+                  'Description',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0, // Ukuran font judul
+                    fontWeight: FontWeight.bold, // Menebalkan font
+                    fontFamily: 'Oxygen',
+                  ),
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 32.0).copyWith(bottom: 16.0),
                 child: Text(
-                  place.description,
+                  training.description,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 16.0,
+                    fontFamily: 'Oxygen',
+                  ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
+                child: const Text(
+                  'Recommendation',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0, // Ukuran font judul
+                    fontWeight: FontWeight.bold, // Menebalkan font
                     fontFamily: 'Oxygen',
                   ),
                 ),
@@ -155,7 +141,7 @@ class DetailMobilePage extends StatelessWidget {
                 height: 150,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
-                  children: place.imageUrls.map((url) {
+                  children: training.imageUrls.map((url) {
                     return Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: ClipRRect(
@@ -175,9 +161,9 @@ class DetailMobilePage extends StatelessWidget {
   
 
 class DetailWebPage extends StatefulWidget {
-  final TrainingModel place;
+  final TrainingModel training;
 
-  const DetailWebPage({super.key, required this.place});
+  const DetailWebPage({super.key, required this.training});
 
   @override
   _DetailWebPageState createState() => _DetailWebPageState();
@@ -219,7 +205,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.asset(widget.place.imageAsset),
+                            child: Image.asset(widget.training.imageAsset),
                           ),
                           const SizedBox(height: 16),
                           Scrollbar(
@@ -230,7 +216,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                               child: ListView(
                                 controller: _scrollController,
                                 scrollDirection: Axis.horizontal,
-                                children: widget.place.imageUrls.map((url) {
+                                children: widget.training.imageUrls.map((url) {
                                   return Padding(
                                     padding: const EdgeInsets.all(4.0),
                                     child: ClipRRect(
@@ -254,7 +240,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                             mainAxisSize: MainAxisSize.max,
                             children: <Widget>[
                               Text(
-                                widget.place.name,
+                                widget.training.name,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 30.0,
@@ -270,7 +256,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                       const Icon(Icons.calendar_today),
                                       const SizedBox(width: 8.0),
                                       Text(
-                                        widget.place.openDays,
+                                        widget.training.openDays,
                                         style: informationTextStyle,
                                       ),
                                     ],
@@ -283,7 +269,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                   const Icon(Icons.access_time),
                                   const SizedBox(width: 8.0),
                                   Text(
-                                    widget.place.openTime,
+                                    widget.training.openTime,
                                     style: informationTextStyle,
                                   ),
                                 ],
@@ -294,7 +280,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                   const Icon(Icons.monetization_on),
                                   const SizedBox(width: 8.0),
                                   Text(
-                                    widget.place.ticketPrice,
+                                    widget.training.ticketPrice,
                                     style: informationTextStyle,
                                   ),
                                 ],
@@ -302,7 +288,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                               Container(
                                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                                 child: Text(
-                                  widget.place.description,
+                                  widget.training.description,
                                   textAlign: TextAlign.justify,
                                   style: const TextStyle(
                                     fontSize: 16.0,
