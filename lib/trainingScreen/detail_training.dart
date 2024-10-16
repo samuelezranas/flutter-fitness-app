@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:fitness_meal_helper/themes.dart';
 import 'package:fitness_meal_helper/trainingScreen/model/training_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -137,6 +138,69 @@ class DetailMobilePage extends StatelessWidget {
                   ),
                 ),
               ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white, // Warna latar belakang
+                  border: Border.all(color: Colors.orange, width: 2.0), // Outline
+                  borderRadius: BorderRadius.circular(12.0), // Border radius
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2), // Warna shadow
+                      spreadRadius: 2, // Seberapa jauh shadow menyebar
+                      blurRadius: 5, // Seberapa kabur shadow
+                      offset: const Offset(0, 3), // Posisi shadow
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        const Icon(Icons.date_range_outlined),
+                        const SizedBox(height: 8.0),
+                        Text(
+                          training.basicRep,
+                          style: informationTextStyle,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        const Icon(Icons.schedule),
+                        const SizedBox(height: 8.0),
+                        Text(
+                          training.interRep,
+                          style: informationTextStyle,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        const Icon(Icons.payments_outlined),
+                        const SizedBox(height: 8.0),
+                        Text(
+                          training.hardRep,
+                          style: informationTextStyle,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
+                child: const Text(
+                  'Variations',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20.0, // Ukuran font judul
+                    fontWeight: FontWeight.bold, // Menebalkan font
+                    fontFamily: 'Oxygen',
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 150,
                 child: ListView(
@@ -190,10 +254,11 @@ class _DetailWebPageState extends State<DetailWebPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const Text(
-                  'Bandung Training',
+                  'FitMe',
                   style: TextStyle(
                     fontFamily: 'Staatliches',
                     fontSize: 32,
+                    color: kPrimaryColor,
                   ),
                 ),
                 const SizedBox(height: 32),
@@ -256,7 +321,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                       const Icon(Icons.calendar_today),
                                       const SizedBox(width: 8.0),
                                       Text(
-                                        widget.training.openDays,
+                                        widget.training.basicRep,
                                         style: informationTextStyle,
                                       ),
                                     ],
@@ -269,7 +334,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                   const Icon(Icons.access_time),
                                   const SizedBox(width: 8.0),
                                   Text(
-                                    widget.training.openTime,
+                                    widget.training.interRep,
                                     style: informationTextStyle,
                                   ),
                                 ],
@@ -280,7 +345,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                   const Icon(Icons.monetization_on),
                                   const SizedBox(width: 8.0),
                                   Text(
-                                    widget.training.ticketPrice,
+                                    widget.training.hardRep,
                                     style: informationTextStyle,
                                   ),
                                 ],

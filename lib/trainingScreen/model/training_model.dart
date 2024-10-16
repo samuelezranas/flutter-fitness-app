@@ -2,9 +2,12 @@ class TrainingModel {
   String name;
   String category;
   String description;
-  String openDays;
-  String openTime;
-  String ticketPrice;
+  String basicRep;
+  String interRep;
+  String hardRep;
+  String basicSet;
+  String interSet;
+  String hardSet;
   String imageAsset;
   List<String> imageUrls;
 
@@ -12,9 +15,12 @@ class TrainingModel {
     required this.name,
     required this.category,
     required this.description,
-    required this.openDays,
-    required this.openTime,
-    required this.ticketPrice,
+    required this.basicRep,
+    required this.interRep,
+    required this.hardRep,
+    required this.basicSet,
+    required this.interSet,
+    required this.hardSet,
     required this.imageAsset,
     required this.imageUrls,
   });
@@ -23,12 +29,15 @@ class TrainingModel {
 var trainingModelList = [
   TrainingModel(
     name: 'Push Up',
-    category: 'Strenght',
+    category: 'Strength',
     description:
-        'Push-up adalah latihan kekuatan yang sangat efektif untuk memperkuat otot tubuh bagian atas dan inti. Dengan menggunakan berat badan sendiri sebagai beban, push-up dapat dilakukan di mana saja tanpa memerlukan peralatan khusus. Latihan ini terutama menargetkan otot dada (pectoralis major), triceps, dan bahu (deltoids), serta membantu meningkatkan stabilitas otot inti.',
-    openDays: 'Everyday',
-    openTime: '09:00 - 20:00',
-    ticketPrice: 'Rp 25000',
+        'Push-up adalah latihan kekuatan yang sangat efektif untuk memperkuat otot tubuh bagian atas dan inti. Latihan ini menargetkan otot dada, triceps, dan bahu, serta membantu meningkatkan stabilitas otot inti.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/pushupmany.webp',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/70/farmhouse-lembang.jpg',
@@ -40,10 +49,13 @@ var trainingModelList = [
     name: 'Sit Up',
     category: 'Strength',
     description:
-        'Memiliki beberapa teleskop, antara lain, Refraktor Ganda Zeiss, Schmidt Bimasakti, Refraktor Bamberg, Cassegrain GOTO, dan Teleskop Surya. Refraktor Ganda Zeiss adalah jenis teleskop terbesar untuk meneropong bintang. Benda ini diletakkan pada atap kubah sehingga saat teropong digunakan, atap tersebut harus dibuka. Observatorium Bosscha boleh dikunjungi oleh siapa pun, tanpa tiket. Namun, bagi yang ingin menggunakan teleskop Zeiss, wajib mendaftarkan diri. Untuk instansi atau lembaga pendidikan, diberikan jadwal hari Selasa sampai Jumat. Sementara itu, kunjungan individu dibuka setiap hari Sabtu.',
-    openDays: 'Tuesday - Saturday',
-    openTime: '09:00 - 14:30',
-    ticketPrice: 'Rp 20000',
+        'Sit-up adalah latihan kekuatan yang membantu memperkuat otot perut dan bagian inti tubuh.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/situp-cool.webp',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/12/6b/63/0b/bosscha-observatory.jpg',
@@ -55,10 +67,13 @@ var trainingModelList = [
     name: 'Plank',
     category: 'Endurance',
     description:
-        'Jalan Asia Afrika di Bandung memiliki kaitan yang sangat erat dengan pendirian kota Kembang ini. Karena pada saat itu, Gubernur Jenderal Herman Willem Deaendels dari Belanda menancapkan tongkatnya saat memerintahkan pendirian kota ini, yang kemudian diabadikan menjadi tugu Bandung Nol Kilometer.',
-    openDays: 'Everyday',
-    openTime: '24 hours',
-    ticketPrice: 'Free',
+        'Plank adalah latihan untuk memperkuat otot inti yang melibatkan stabilitas tubuh dalam posisi statis.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/plank.webp',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/0d/c2/e7/e6/quotes-kota-bandung.jpg',
@@ -70,10 +85,13 @@ var trainingModelList = [
     name: 'Squat',
     category: 'Strength',
     description:
-        'Stone Garden atau Taman Batu di Padalarang – Bandung ini adalah nama secara harafiah untuk apa yang akan kita lihat jika berada di sana. Hamparan batu yang artistik membuat kita merasa tidak sedang berada di Bandung, apalagi di Padalarang. Hamparan batu yang dimaksud bukan terhampar begitu saja di atas tanah luas yang menjadi permukaannya. Batu-batu besar yang ukuran pastinya bervariasi tersusun seperti memiliki suatu formasi matematis.',
-    openDays: 'Everyday',
-    openTime: '06:00 - 17:00',
-    ticketPrice: 'Rp 3000',
+        'Squat adalah latihan yang melibatkan otot-otot kaki, paha, dan pinggul, serta melatih keseimbangan tubuh.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/squats.webp',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/15/01/d7/4b/p-20180510-153310-01.jpg',
@@ -85,10 +103,13 @@ var trainingModelList = [
     name: 'Lunges',
     category: 'Strength & Balance',
     description:
-        'Menjadi salah satu tempat wisata di Bandung yang favorit, tentu Taman Film ini memiliki fasilitas cukup memadai. Pemberian fasilitas ini memiliki harapan para pengunjung akan merasa nyaman dan tak segan2 untuk kembali berkunjung terus menerus kesini. Beberapa fasilitas taman yang bisa kamu nikmati diantaranya seperti layar videotron besar berukuran 4×8 untuk memutar berbagai macam pilihan film seperti Film Indonesia, Bollywood, Korea, ataupun Indie Bandung.',
-    openDays: 'Everyday',
-    openTime: '24 hours',
-    ticketPrice: 'Free',
+        'Lunges adalah latihan yang fokus pada otot kaki dan pinggul, serta meningkatkan keseimbangan.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/lunges.webp',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/08/8b/87/50/bandung-movie-park.jpg',
@@ -100,10 +121,13 @@ var trainingModelList = [
     name: 'Burpee',
     category: 'Strength & Endurance',
     description:
-        'Museum Geologi didirikan pada tanggal 16 Mei 1929. Museum ini telah direnovasi dengan dana bantuan dari JICA (Japan International Cooperation Agency). Setelah mengalami renovasi, Museum Geologi dibuka kembali dan diresmikan oleh Wakil Presiden RI, Megawati Soekarnoputri pada tanggal 23 Agustus 2000. Sebagai salah satu monumen bersejarah, museum berada di bawah perlindungan pemerintah dan merupakan peninggalan nasional. Dalam Museum ini, tersimpan dan dikelola materi-materi geologi yang berlimpah, seperti fosil, batuan, mineral. Kesemuanya itu dikumpulkan selama kerja lapangan di Indonesia sejak 1850.',
-    openDays: 'Saturday - Thursday',
-    openTime: '09:00 - 15:30',
-    ticketPrice: 'Rp 3000',
+        'Burpee adalah latihan kekuatan dan ketahanan yang menggabungkan gerakan squat, push-up, dan lompatan.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/burpee.jpg',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-w/19/1c/8e/f7/geology-museum.jpg',
@@ -115,10 +139,13 @@ var trainingModelList = [
     name: 'Mountain Climber',
     category: 'Endurance',
     description:
-        'Tempat wisata ini sepertinya memang ditujukan untuk wisata keluarga di Bandung. Di sini kita bisa menikmati suasana kawasan yang tertata rapi dan alami. Pada awalnya, floating market Lembang tidak begitu luas. Tapi sekarang sudah ekspansi dan memiliki banyak objek menarik baru. Nama floating market ini sepertinya merujuk pada stand tempat jualan makanan yang berada dalam perahu.',
-    openDays: 'Everyday',
-    openTime: '09:00 - 17:00',
-    ticketPrice: 'Rp 20000',
+        'Mountain climber adalah latihan yang melibatkan gerakan cepat untuk melatih kekuatan dan ketahanan otot.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/mountain-climbers.webp',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/17/f9/ff/f8/floating-market-bandung.jpg',
@@ -130,10 +157,13 @@ var trainingModelList = [
     name: 'Leg Raises',
     category: 'Strength',
     description:
-        'Kawah Putih adalah tempat wisata di Bandung yang paling terkenal. Berlokasi di Ciwidey, Jawa Barat, kurang lebih sekitar 50 KM arah selatan kota Bandung, Kawah Putih adalah sebuah danau yang terbentuk akibat dari letusan Gunung Patuha. Sesuai dengan namanya, tanah yang ada di kawasan ini berwarna putih akibat dari pencampuran unsur belerang.',
-    openDays: 'Everyday',
-    openTime: '07:00 - 17:00',
-    ticketPrice: 'Rp 15000',
+        'Leg raises adalah latihan yang melatih otot perut bagian bawah dan meningkatkan kekuatan inti.',
+    basicRep: '5x',
+    interRep: '10x',
+    hardRep: '20x',
+    basicSet: '3 set',
+    interSet: '5 set',
+    hardSet: '7 set',
     imageAsset: 'assets/images/leg-raises.jpg',
     imageUrls: [
       'https://media-cdn.tripadvisor.com/media/photo-o/0b/6e/7c/ce/rocks-sticking-out-of.jpg',
