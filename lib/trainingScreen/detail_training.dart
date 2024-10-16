@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:fitness_meal_helper/themes.dart';
+import 'package:fitness_meal_helper/trainingScreen/model/skill_level_box.dart';
 import 'package:fitness_meal_helper/trainingScreen/model/training_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -57,171 +58,213 @@ class DetailMobilePage extends StatelessWidget {
   final TrainingModel training;
 
   const DetailMobilePage({super.key, required this.training});
+
   @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  Image.asset(training.imageAsset),
-                  SafeArea(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.grey,
-                            child: IconButton(
-                              icon: const Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(), // Menambahkan physics agar scroll lebih halus
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                Image.asset(training.imageAsset),
+                SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: kPrimaryColor,
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
+                              
                             ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                           ),
-                          const FavoriteButton(),
-                        ],
-                      ),
+                        ),
+                        const FavoriteButton(),
+                      ],
                     ),
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Text(
+                training.name,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 30.0,
+                  fontFamily: 'Staatliches',
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
+              child: const Text(
+                'Description',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20.0, // Ukuran font judul
+                  fontWeight: FontWeight.bold, // Menebalkan font
+                  fontFamily: 'Oxygen',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 32.0).copyWith(bottom: 16.0),
+              child: Text(
+                training.description,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  fontFamily: 'Oxygen',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
+              child: const Text(
+                'Recommendation',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20.0, // Ukuran font judul
+                  fontWeight: FontWeight.bold, // Menebalkan font
+                  fontFamily: 'Oxygen',
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0).copyWith(bottom: 16.0),
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: kBackgroundColor,
+                borderRadius: BorderRadius.circular(18.0), // Border radius
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2), // Warna shadow
+                    spreadRadius: 2, // Seberapa jauh shadow menyebar
+                    blurRadius: 5, // Seberapa kabur shadow
+                    offset: const Offset(0, 1), // Posisi shadow
                   ),
                 ],
               ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Text(
-                  training.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 30.0,
-                    fontFamily: 'Staatliches',
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
-                child: const Text(
-                  'Description',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0, // Ukuran font judul
-                    fontWeight: FontWeight.bold, // Menebalkan font
-                    fontFamily: 'Oxygen',
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 32.0).copyWith(bottom: 16.0),
-                child: Text(
-                  training.description,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: 'Oxygen',
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
-                child: const Text(
-                  'Recommendation',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0, // Ukuran font judul
-                    fontWeight: FontWeight.bold, // Menebalkan font
-                    fontFamily: 'Oxygen',
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 16.0),
-                decoration: BoxDecoration(
-                  color: Colors.white, // Warna latar belakang
-                  border: Border.all(color: Colors.orange, width: 2.0), // Outline
-                  borderRadius: BorderRadius.circular(12.0), // Border radius
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2), // Warna shadow
-                      spreadRadius: 2, // Seberapa jauh shadow menyebar
-                      blurRadius: 5, // Seberapa kabur shadow
-                      offset: const Offset(0, 3), // Posisi shadow
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        const Icon(Icons.date_range_outlined),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          training.basicRep,
-                          style: informationTextStyle,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      const SkillLevelIcon(level: 1),
+                      const SizedBox(height: 8.0),
+                      const Text(
+                        "Basic",
+                        style: TextStyle(
+                          fontSize: 16.0, // Ukuran font judul
+                          fontWeight: FontWeight.bold, // Menebalkan font
+                          fontFamily: 'Oxygen',
                         ),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        const Icon(Icons.schedule),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          training.interRep,
-                          style: informationTextStyle,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: <Widget>[
-                        const Icon(Icons.payments_outlined),
-                        const SizedBox(height: 8.0),
-                        Text(
-                          training.hardRep,
-                          style: informationTextStyle,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
-                child: const Text(
-                  'Variations',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0, // Ukuran font judul
-                    fontWeight: FontWeight.bold, // Menebalkan font
-                    fontFamily: 'Oxygen',
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 150,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: training.imageUrls.map((url) {
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(url),
                       ),
-                    );
-                  }).toList(),
+                      Text(
+                        training.basicRep,
+                        style: informationTextStyle,
+                      ),
+                      Text(
+                        training.basicSet,
+                        style: informationTextStyle,
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      const SkillLevelIcon(level: 2),
+                      const SizedBox(height: 8.0),
+                      const Text(
+                        "Intermediate",
+                        style: TextStyle(
+                          fontSize: 16.0, // Ukuran font judul
+                          fontWeight: FontWeight.bold, // Menebalkan font
+                          fontFamily: 'Oxygen',
+                        ),
+                      ),
+                      Text(
+                        training.interRep,
+                        style: informationTextStyle,
+                      ),
+                      Text(
+                        training.interSet,
+                        style: informationTextStyle,
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: <Widget>[
+                      const SkillLevelIcon(level: 3),
+                      const SizedBox(height: 8.0),
+                      const Text(
+                        "Hard",
+                        style: TextStyle(
+                          fontSize: 16.0, // Ukuran font judul
+                          fontWeight: FontWeight.bold, // Menebalkan font
+                          fontFamily: 'Oxygen',
+                        ),
+                      ),
+                      Text(
+                        training.hardRep,
+                        style: informationTextStyle,
+                      ),
+                      Text(
+                        training.hardSet,
+                        style: informationTextStyle,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
+              child: const Text(
+                'Variations',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20.0, // Ukuran font judul
+                  fontWeight: FontWeight.bold, // Menebalkan font
+                  fontFamily: 'Oxygen',
                 ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true, // Tambahkan shrinkWrap agar sesuai dengan konten
+                children: training.imageUrls.map((url) {
+                  return Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(url),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
         ),
-      );
-    }
+      ),
+    );
   }
+}
+
   
 
 class DetailWebPage extends StatefulWidget {
@@ -324,6 +367,10 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                         widget.training.basicRep,
                                         style: informationTextStyle,
                                       ),
+                                      Text(
+                                        widget.training.basicSet,
+                                        style: informationTextStyle,
+                                      ),
                                     ],
                                   ),
                                   const FavoriteButton(),
@@ -337,6 +384,10 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                     widget.training.interRep,
                                     style: informationTextStyle,
                                   ),
+                                  Text(
+                                    widget.training.interSet,
+                                    style: informationTextStyle,
+                                  ),
                                 ],
                               ),
                               const SizedBox(height: 8.0),
@@ -346,6 +397,10 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                   const SizedBox(width: 8.0),
                                   Text(
                                     widget.training.hardRep,
+                                    style: informationTextStyle,
+                                  ),
+                                  Text(
+                                    widget.training.hardSet,
                                     style: informationTextStyle,
                                   ),
                                 ],

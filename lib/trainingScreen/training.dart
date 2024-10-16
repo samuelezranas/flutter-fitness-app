@@ -46,7 +46,9 @@ class _TrainingPageState extends State<TrainingPage> {
           appBar: AppBar(
             title: Text(
               'Training',
-              style: TextStyle(color: _appBarTextColor), // Menggunakan warna teks dari variabel
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: _appBarTextColor), // Menggunakan warna teks dari variabel
             ),
             backgroundColor: _appBarBackgroundColor, // Warna latar belakang
             elevation: 0, // Menghilangkan bayangan
@@ -95,37 +97,64 @@ class TrainingModelGrid extends StatelessWidget {
               return DetailScreen(training: training);
             }));
           },
-          child: Card(
-            child: Column(
-              mainAxisSize: MainAxisSize.min, // Ambil hanya ruang yang diperlukan
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(
-                  child: Image.asset(
-                    training.imageAsset,
-                    fit: BoxFit.cover, // Menggunakan BoxFit.cover untuk memperbesar gambar
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0), // Padding horizontal
-                  child: Text(
-                    training.name,
-                    style: const TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 2.0),
-                  child: Text(
-                    training.category,
-                  ),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white, // Warna latar belakang Card
+              borderRadius: BorderRadius.circular(15.0), // Membuat sudut rounded
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2), // Warna shadow
+                  spreadRadius: 2, // Seberapa jauh shadow menyebar
+                  blurRadius: 5, // Seberapa kabur shadow
+                  offset: const Offset(0, 3), // Posisi shadow
                 ),
               ],
             ),
-          ),
+            child: Card(
+              elevation: 0, // Nonaktifkan shadow bawaan Card
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0), // Sesuaikan border radius
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min, // Ambil hanya ruang yang diperlukan
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(15.0),
+                        topRight: Radius.circular(15.0),
+                      ), // Membuat sudut rounded pada gambar bagian atas
+                      child: Image.asset(
+                        training.imageAsset,
+                        fit: BoxFit.cover, // Menggunakan BoxFit.cover untuk memperbesar gambar
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0), // Padding horizontal
+                    child: Text(
+                      training.name,
+                      style: const TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0), // Padding lebih besar untuk teks bawah
+                    child: Text(
+                      training.category,
+                      style: const TextStyle(
+                        fontSize: 10.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
         );
       }).toList(),
     );
