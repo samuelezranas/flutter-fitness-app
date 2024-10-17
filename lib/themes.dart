@@ -7,8 +7,9 @@ double defaultRadius = 12.0;
 
 /// Colors
 const Color kPrimaryColor = Color(0xFFFF9436);
+const Color kSecondaryColor = Color(0xFF949494);
 const Color kPrimaryTextColor = Color(0xFF181818);
-const Color kBackgroundColor = Color(0xEDFFFFFF);
+const Color kBackgroundColor = Color(0xFFFFFFFF);
 const Color kBreakfastColor = Color(0xff9DCEFF);
 const Color kWhiteColor = Color(0xFFFFFFFF);
 const Color kShimmerBaseColor = Color(0xFFF5F5F5);

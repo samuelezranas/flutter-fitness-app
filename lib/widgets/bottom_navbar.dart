@@ -20,7 +20,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return BottomNavigationBar(
       currentIndex: widget.selectedIndex,
       onTap: widget.onTap,
-      selectedItemColor: Colors.amber,
+      selectedItemColor: Colors.orange,
       unselectedItemColor: Colors.grey,
       iconSize: 30,
       selectedLabelStyle: const TextStyle(

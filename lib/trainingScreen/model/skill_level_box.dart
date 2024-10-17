@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SkillLevelIcon extends StatelessWidget {
   final int level;
 
-  const SkillLevelIcon({required this.level});
+  const SkillLevelIcon({super.key, required this.level});
 
   @override
   Widget build(BuildContext context) {

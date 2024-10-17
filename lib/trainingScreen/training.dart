@@ -98,6 +98,10 @@ class TrainingModelGrid extends StatelessWidget {
             }));
           },
           child: Container(
+            padding: const EdgeInsets.only(
+                  left: 20,
+                  right: 20
+                ),
             decoration: BoxDecoration(
               color: Colors.white, // Warna latar belakang Card
               borderRadius: BorderRadius.circular(15.0), // Membuat sudut rounded

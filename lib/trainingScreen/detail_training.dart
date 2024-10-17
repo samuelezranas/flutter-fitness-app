@@ -40,16 +40,19 @@ class _FavoriteButtonState extends State<FavoriteButton> {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        isFavorite ? Icons.star : Icons.star_border_outlined,
-        color: Colors.orange,
+    return CircleAvatar(
+      backgroundColor: const Color(0xFFFFFFFF), // Warna latar belakang lingkaran
+      child: IconButton(
+        icon: Icon(
+          isFavorite ? Icons.star : Icons.star_border_outlined,
+          color: kPrimaryColor, // Warna ikon
+        ),
+        onPressed: () {
+          setState(() {
+            isFavorite = !isFavorite;
+          });
+        },
       ),
-      onPressed: () {
-        setState(() {
-          isFavorite = !isFavorite;
-        });
-      },
     );
   }
 }
@@ -63,7 +66,7 @@ class DetailMobilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(), // Menambahkan physics agar scroll lebih halus
+        physics: const BouncingScrollPhysics(), // Menambahkan physics agar scroll lebih halus
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -82,7 +85,6 @@ class DetailMobilePage extends StatelessWidget {
                             icon: const Icon(
                               Icons.arrow_back,
                               color: Colors.white,
-                              
                             ),
                             onPressed: () {
                               Navigator.pop(context);
@@ -121,7 +123,7 @@ class DetailMobilePage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 32.0).copyWith(bottom: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 32.0).copyWith(bottom: 32.0),
               child: Text(
                 training.description,
                 textAlign: TextAlign.center,
@@ -144,7 +146,7 @@ class DetailMobilePage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0).copyWith(bottom: 16.0),
+              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0).copyWith(bottom: 32.0),
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
                 color: kBackgroundColor,
@@ -231,31 +233,85 @@ class DetailMobilePage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 4.0), // Padding vertikal
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: const Text(
                 'Variations',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 20.0, // Ukuran font judul
-                  fontWeight: FontWeight.bold, // Menebalkan font
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                   fontFamily: 'Oxygen',
                 ),
               ),
             ),
-            SizedBox(
-              height: 150,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true, // Tambahkan shrinkWrap agar sesuai dengan konten
-                children: training.imageUrls.map((url) {
-                  return Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network(url),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0).copyWith(bottom: 32.0),
+                padding: const EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: kBackgroundColor,
+                  borderRadius: BorderRadius.circular(18.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 1),
+                    ),
+                  ],
+                ),
+              child: Column(
+                children: List.generate(5, (index) {
+                  final trainName = index == 0 ? training.train1name :
+                                    index == 1 ? training.train2name :
+                                    index == 2 ? training.train3name :
+                                    index == 3 ? training.train4name :
+                                    index == 4 ? training.train5name : '';
+                  final trainImg = index == 0 ? training.train1img :
+                                  index == 1 ? training.train2img :
+                                  index == 2 ? training.train3img :
+                                  index == 3 ? training.train4img :
+                                  index == 4 ? training.train5img : '';
+                  
+                  if (trainName.isEmpty || trainImg.isEmpty) return const SizedBox.shrink();
+                  
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 16.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(trainImg),
+                              fit: BoxFit.cover,
+                            ),
+                            borderRadius: BorderRadius.circular(10.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                spreadRadius: 1,
+                                blurRadius: 3,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 16.0),
+                        Expanded(
+                          child: Text(
+                            trainName,
+                            style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Oxygen',
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   );
-                }).toList(),
+                }),
               ),
             ),
           ],
@@ -297,7 +353,7 @@ class _DetailWebPageState extends State<DetailWebPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const Text(
-                  'FitMe',
+                  'Training',
                   style: TextStyle(
                     fontFamily: 'Staatliches',
                     fontSize: 32,
@@ -324,15 +380,13 @@ class _DetailWebPageState extends State<DetailWebPage> {
                               child: ListView(
                                 controller: _scrollController,
                                 scrollDirection: Axis.horizontal,
-                                children: widget.training.imageUrls.map((url) {
-                                  return Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.network(url),
-                                    ),
-                                  );
-                                }).toList(),
+                                children: [
+                                  _buildTrainingImage(widget.training.train1img),
+                                  _buildTrainingImage(widget.training.train2img),
+                                  _buildTrainingImage(widget.training.train3img),
+                                  _buildTrainingImage(widget.training.train4img),
+                                  _buildTrainingImage(widget.training.train5img),
+                                ],
                               ),
                             ),
                           ),
@@ -431,9 +485,13 @@ class _DetailWebPageState extends State<DetailWebPage> {
     );
   }
 
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
+  Widget _buildTrainingImage(String imageUrl) {
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.asset(imageUrl),
+      ),
+    );
   }
 }

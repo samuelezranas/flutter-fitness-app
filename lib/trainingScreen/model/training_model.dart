@@ -9,7 +9,16 @@ class TrainingModel {
   String interSet;
   String hardSet;
   String imageAsset;
-  List<String> imageUrls;
+  String train1img;
+  String train2img;
+  String train3img;
+  String train4img;
+  String train5img;
+  String train1name;
+  String train2name;
+  String train3name;
+  String train4name;
+  String train5name;
 
   TrainingModel({
     required this.name,
@@ -22,7 +31,16 @@ class TrainingModel {
     required this.interSet,
     required this.hardSet,
     required this.imageAsset,
-    required this.imageUrls,
+    required this.train1img,
+    required this.train2img,
+    required this.train3img,
+    required this.train4img,
+    required this.train5img,
+    required this.train1name,
+    required this.train2name,
+    required this.train3name,
+    required this.train4name,
+    required this.train5name,
   });
 }
 
@@ -31,7 +49,7 @@ var trainingModelList = [
     name: 'Push Up',
     category: 'Strength',
     description:
-        'Push-up adalah latihan kekuatan yang sangat efektif untuk memperkuat otot tubuh bagian atas dan inti. Latihan ini menargetkan otot dada, triceps, dan bahu, serta membantu meningkatkan stabilitas otot inti.',
+        'Push-up adalah latihan kekuatan yang sangat efektif untuk memperkuat otot tubuh bagian atas dan inti.',
     basicRep: '5x',
     interRep: '10x',
     hardRep: '20x',
@@ -39,11 +57,16 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/pushupmany.webp',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-s/0d/7c/59/70/farmhouse-lembang.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-w/13/f0/22/f6/photo3jpg.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Sit Up',
@@ -57,11 +80,16 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/situp-cool.webp',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-o/12/6b/63/0b/bosscha-observatory.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-p/0d/6a/88/9b/photo3jpg.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-o/11/3f/04/39/p-20171111-110220-largejpg.jpg',
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Plank',
@@ -75,11 +103,16 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/plank.webp',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-o/0d/c2/e7/e6/quotes-kota-bandung.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-w/17/f4/44/01/jalan-asia-afrika.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-s/0a/ef/36/e2/jalan-asia-afrika.jpg',
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Squat',
@@ -93,11 +126,16 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/squats.webp',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-o/15/01/d7/4b/p-20180510-153310-01.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-w/15/68/00/32/stone-garden-citatah.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-o/0d/a2/cb/05/stone-garden-citatah.jpg',
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Lunges',
@@ -111,11 +149,16 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/lunges.webp',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-o/08/8b/87/50/bandung-movie-park.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-o/17/67/d5/53/img-20190505-114509-largejpg.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-w/09/73/33/05/taman-film-pasopati.jpg',
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Burpee',
@@ -129,11 +172,16 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/burpee.jpg',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-w/19/1c/8e/f7/geology-museum.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-o/11/a7/35/b7/geology-museum.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-s/1a/55/e0/dc/geology-museum.jpg',
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Mountain Climber',
@@ -147,11 +195,16 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/mountain-climbers.webp',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-o/17/f9/ff/f8/floating-market-bandung.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-p/1a/86/d3/cd/20200103-125059-largejpg.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-p/19/ce/b4/9b/img20181224120857-largejpg.jpg',
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Leg Raises',
@@ -165,10 +218,15 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/leg-raises.jpg',
-    imageUrls: [
-      'https://media-cdn.tripadvisor.com/media/photo-o/0b/6e/7c/ce/rocks-sticking-out-of.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-p/0b/35/30/14/white-crater.jpg',
-      'https://media-cdn.tripadvisor.com/media/photo-o/0a/8b/9a/79/2945-t00572-www-initempatwisat.jpg',
-    ],
+    train1img: 'assets/images/pushupmany.webp',
+    train2img: 'assets/images/pushupmany.webp',
+    train3img: 'assets/images/pushupmany.webp',
+    train4img: 'assets/images/pushupmany.webp',
+    train5img: 'assets/images/pushupmany.webp',
+    train1name: 'Incline Push Up',
+    train2name: 'Incline Push Up',
+    train3name: 'Incline Push Up',
+    train4name: 'Incline Push Up',
+    train5name: 'Incline Push Up',
   ),
 ];
