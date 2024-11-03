@@ -13,6 +13,8 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.10+1
+  stop_watch_timer: ^3.2.1
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +43,7 @@ flutter:
   uses-material-design: true
 
   assets:
+     - assets/audio/
      - assets/icons/
      - assets/images/
 

@@ -66,7 +66,7 @@ class DetailMobilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(), // Menambahkan physics agar scroll lebih halus
+        physics: const BouncingScrollPhysics(), 
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
