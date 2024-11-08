@@ -115,7 +115,7 @@ class TrainingModelGrid extends StatelessWidget {
               ],
             ),
             child: Card(
-              elevation: 0, // Nonaktifkan shadow bawaan Card
+              elevation: 25, // Nonaktifkan shadow bawaan Card
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0), // Sesuaikan border radius
               ),

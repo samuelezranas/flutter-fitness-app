@@ -12,13 +12,9 @@ class TrainingModel {
   String train1img;
   String train2img;
   String train3img;
-  String train4img;
-  String train5img;
   String train1name;
   String train2name;
   String train3name;
-  String train4name;
-  String train5name;
 
   TrainingModel({
     required this.name,
@@ -34,13 +30,9 @@ class TrainingModel {
     required this.train1img,
     required this.train2img,
     required this.train3img,
-    required this.train4img,
-    required this.train5img,
     required this.train1name,
     required this.train2name,
     required this.train3name,
-    required this.train4name,
-    required this.train5name,
   });
 }
 
@@ -57,16 +49,12 @@ var trainingModelList = [
     interSet: '5 set',
     hardSet: '7 set',
     imageAsset: 'assets/images/pushupmany.webp',
-    train1img: 'assets/images/pushupmany.webp',
-    train2img: 'assets/images/pushupmany.webp',
-    train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
+    train1img: 'https://www.maxnrgpt.com.au/blog/wp-content/uploads/2010/07/incline-push-up-start.jpg',
+    train2img: 'https://cdn.outsideonline.com/wp-content/uploads/2019/02/15/8-wide-b_0.jpg',
+    train3img: 'https://www.maxnrgpt.com.au/blog/wp-content/uploads/2010/07/incline-push-up-start.jpg',
     train1name: 'Incline Push Up',
-    train2name: 'Incline Push Up',
+    train2name: 'Wide Hands Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Sit Up',
@@ -83,13 +71,9 @@ var trainingModelList = [
     train1img: 'assets/images/pushupmany.webp',
     train2img: 'assets/images/pushupmany.webp',
     train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
     train1name: 'Incline Push Up',
     train2name: 'Incline Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
   ),
   TrainingModel(
     name: 'Plank',
@@ -106,13 +90,11 @@ var trainingModelList = [
     train1img: 'assets/images/pushupmany.webp',
     train2img: 'assets/images/pushupmany.webp',
     train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
+
     train1name: 'Incline Push Up',
     train2name: 'Incline Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
+
   ),
   TrainingModel(
     name: 'Squat',
@@ -129,13 +111,11 @@ var trainingModelList = [
     train1img: 'assets/images/pushupmany.webp',
     train2img: 'assets/images/pushupmany.webp',
     train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
+
     train1name: 'Incline Push Up',
     train2name: 'Incline Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
+
   ),
   TrainingModel(
     name: 'Lunges',
@@ -152,13 +132,11 @@ var trainingModelList = [
     train1img: 'assets/images/pushupmany.webp',
     train2img: 'assets/images/pushupmany.webp',
     train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
+
     train1name: 'Incline Push Up',
     train2name: 'Incline Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
+
   ),
   TrainingModel(
     name: 'Burpee',
@@ -175,13 +153,11 @@ var trainingModelList = [
     train1img: 'assets/images/pushupmany.webp',
     train2img: 'assets/images/pushupmany.webp',
     train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
+
     train1name: 'Incline Push Up',
     train2name: 'Incline Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
+
   ),
   TrainingModel(
     name: 'Mountain Climber',
@@ -198,13 +174,11 @@ var trainingModelList = [
     train1img: 'assets/images/pushupmany.webp',
     train2img: 'assets/images/pushupmany.webp',
     train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
+
     train1name: 'Incline Push Up',
     train2name: 'Incline Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
+
   ),
   TrainingModel(
     name: 'Leg Raises',
@@ -221,12 +195,10 @@ var trainingModelList = [
     train1img: 'assets/images/pushupmany.webp',
     train2img: 'assets/images/pushupmany.webp',
     train3img: 'assets/images/pushupmany.webp',
-    train4img: 'assets/images/pushupmany.webp',
-    train5img: 'assets/images/pushupmany.webp',
+
     train1name: 'Incline Push Up',
     train2name: 'Incline Push Up',
     train3name: 'Incline Push Up',
-    train4name: 'Incline Push Up',
-    train5name: 'Incline Push Up',
+
   ),
 ];

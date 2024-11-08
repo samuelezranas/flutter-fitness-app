@@ -1,4 +1,4 @@
-import 'package:fitness_meal_helper/dietScreen/diet.dart';
+import 'package:fitness_meal_helper/dietScreen/news.dart';
 import 'package:fitness_meal_helper/trainingScreen/training.dart';
 import 'package:fitness_meal_helper/homeScreen/home.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const HomePage(),
     const TrainingPage(),
-    const DietPage(),
+    const NewsPage(),
   ];
 
   void _onItemTapped(int index) {

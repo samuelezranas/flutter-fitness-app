@@ -38,14 +38,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
           activeIcon: Icon(Icons.home),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.fitness_center_outlined),
+          icon: Icon(Icons.fitness_center_rounded),
           label: 'Training',
           activeIcon: Icon(Icons.fitness_center),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.local_dining_outlined),
-          label: 'Diet',
-          activeIcon: Icon(Icons.local_dining),
+          icon: Icon(Icons.newspaper_outlined),
+          label: 'News',
+          activeIcon: Icon(Icons.newspaper),
         ),
       ],
     );

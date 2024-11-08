@@ -147,7 +147,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                   return Text(
                     displayTime,
                     style: const TextStyle(
-                      fontSize: 50,
+                      fontSize: 42,
                     ),
                   );
                 },

@@ -12,10 +12,22 @@ class HomePage extends StatelessWidget {
       appBar: appBar(),
       backgroundColor: kBackgroundColor,
       body: const Padding(
-        padding: EdgeInsets.symmetric(vertical: 32, horizontal: 0),
+        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Padding(
+              padding: EdgeInsets.only(left: 32),
+              child: Text(
+                'Favorite', // Judul untuk kolom Favorite Sport
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            SizedBox(height: 15),
             Padding(
               padding: EdgeInsets.only(left: 32),
               child: Text(
@@ -27,9 +39,8 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 12),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 18), // Padding di sekitar Container
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
               child: TimerWidget(), // TimerWidget sudah memiliki styling
             ),
           ],

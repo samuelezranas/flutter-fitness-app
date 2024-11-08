@@ -263,14 +263,10 @@ class DetailMobilePage extends StatelessWidget {
                 children: List.generate(5, (index) {
                   final trainName = index == 0 ? training.train1name :
                                     index == 1 ? training.train2name :
-                                    index == 2 ? training.train3name :
-                                    index == 3 ? training.train4name :
-                                    index == 4 ? training.train5name : '';
+                                    index == 2 ? training.train3name : '';
                   final trainImg = index == 0 ? training.train1img :
                                   index == 1 ? training.train2img :
-                                  index == 2 ? training.train3img :
-                                  index == 3 ? training.train4img :
-                                  index == 4 ? training.train5img : '';
+                                  index == 2 ? training.train3img : '';
                   
                   if (trainName.isEmpty || trainImg.isEmpty) return const SizedBox.shrink();
                   
@@ -384,8 +380,6 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                   _buildTrainingImage(widget.training.train1img),
                                   _buildTrainingImage(widget.training.train2img),
                                   _buildTrainingImage(widget.training.train3img),
-                                  _buildTrainingImage(widget.training.train4img),
-                                  _buildTrainingImage(widget.training.train5img),
                                 ],
                               ),
                             ),
@@ -485,13 +479,19 @@ class _DetailWebPageState extends State<DetailWebPage> {
     );
   }
 
-  Widget _buildTrainingImage(String imageUrl) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Image.asset(imageUrl),
+  Widget _buildTrainingImage(String url) {
+  return Padding(
+    padding: const EdgeInsets.all(4.0),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Image.network(
+        url,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return const Text('Failed to load image'); // Penanganan jika gambar gagal dimuat
+        },
       ),
-    );
-  }
+    ),
+  );
+}
 }
