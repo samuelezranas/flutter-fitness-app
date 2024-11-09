@@ -1,6 +1,5 @@
 import 'package:fitness_meal_helper/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fitness_meal_helper/widgets/timer_component.dart'; // Import the TimerComponent
 
 class HomePage extends StatelessWidget {
@@ -62,21 +61,6 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0.0,
       centerTitle: true,
-      actions: [
-        GestureDetector(
-          onTap: () {},
-          child: Container(
-            margin: const EdgeInsets.all(10),
-            alignment: Alignment.center,
-            width: 35,
-            child: SvgPicture.asset(
-              'assets/icons/favorite.svg',
-              height: 25,
-              width: 25,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

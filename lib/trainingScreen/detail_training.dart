@@ -377,9 +377,24 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                 controller: _scrollController,
                                 scrollDirection: Axis.horizontal,
                                 children: [
-                                  _buildTrainingImage(widget.training.train1img),
-                                  _buildTrainingImage(widget.training.train2img),
-                                  _buildTrainingImage(widget.training.train3img),
+                                  Image.network(
+                                    widget.training.train1img,
+                                    width: 300,
+                                    height: 300,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Image.network(
+                                    widget.training.train2img,
+                                    width: 150,
+                                    height: 150,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Image.network(
+                                    widget.training.train3img,
+                                    width: 150,
+                                    height: 150,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ],
                               ),
                             ),
@@ -478,20 +493,4 @@ class _DetailWebPageState extends State<DetailWebPage> {
       ),
     );
   }
-
-  Widget _buildTrainingImage(String url) {
-  return Padding(
-    padding: const EdgeInsets.all(4.0),
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: Image.network(
-        url,
-        fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) {
-          return const Text('Failed to load image'); // Penanganan jika gambar gagal dimuat
-        },
-      ),
-    ),
-  );
-}
 }
