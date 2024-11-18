@@ -18,18 +18,6 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 32),
               child: Text(
-                'Favorite', // Judul untuk kolom Favorite Sport
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            SizedBox(height: 15),
-            Padding(
-              padding: EdgeInsets.only(left: 32),
-              child: Text(
                 'Timer',
                 style: TextStyle(
                   color: Colors.black,
@@ -40,7 +28,7 @@ class HomePage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              child: TimerWidget(), // TimerWidget sudah memiliki styling
+              child: TimerWidget(), 
             ),
           ],
         ),
