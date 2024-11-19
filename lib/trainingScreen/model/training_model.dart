@@ -1,4 +1,7 @@
+import 'package:uuid/uuid.dart';
+
 class TrainingModel {
+  final String id;
   String name;
   String category;
   String description;
@@ -17,6 +20,7 @@ class TrainingModel {
   String train3name;
 
   TrainingModel({
+    String? id, // ID akan di-generate otomatis jika tidak disediakan
     required this.name,
     required this.category,
     required this.description,
@@ -33,7 +37,7 @@ class TrainingModel {
     required this.train1name,
     required this.train2name,
     required this.train3name,
-  });
+  }) : id = id ?? const Uuid().v4(); 
 }
 
 var trainingModelList = [
@@ -75,6 +79,7 @@ var trainingModelList = [
     train2name: 'Weighted Sit-Up',
     train3name: 'V-Sit',
   ),
+
   TrainingModel(
     name: 'Plank',
     category: 'Endurance',
@@ -93,8 +98,8 @@ var trainingModelList = [
     train1name: 'Side Plank',
     train2name: 'Plank with Arm/Leg Lift',
     train3name: 'Forearm-to-High Plank',
-
   ),
+
   TrainingModel(
     name: 'Squat',
     category: 'Strength',
@@ -114,6 +119,7 @@ var trainingModelList = [
     train2name: 'Jump Squat',
     train3name: 'Bulgarian Split Squat',
   ),
+
   TrainingModel(
     name: 'Lunges',
     category: 'Strength & Balance',
@@ -132,8 +138,8 @@ var trainingModelList = [
     train1name: 'Reverse Lunge',
     train2name: 'Walking Lunges',
     train3name: 'Curtsy Lunge',
-
   ),
+
   TrainingModel(
     name: 'Burpee',
     category: 'Strength & Endurance',
@@ -153,6 +159,7 @@ var trainingModelList = [
     train2name: 'Tuck Jump Burpee',
     train3name: 'Mountain Climber Burpee',
   ),
+
   TrainingModel(
     name: 'Mountain Climber',
     category: 'Endurance',
@@ -172,6 +179,7 @@ var trainingModelList = [
     train2name: 'Slow Motion Mountain Climber',
     train3name: 'Spider Mountain Climber',
   ),
+  
   TrainingModel(
     name: 'Leg Raises',
     category: 'Strength',

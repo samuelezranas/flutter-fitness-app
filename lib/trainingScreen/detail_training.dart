@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:fitness_meal_helper/favoriteScreen/favorites_db_helper.dart';
 import 'package:fitness_meal_helper/themes.dart';
 import 'package:fitness_meal_helper/trainingScreen/model/skill_level_box.dart';
 import 'package:fitness_meal_helper/trainingScreen/model/training_model.dart';
@@ -27,9 +28,10 @@ class DetailScreen extends StatelessWidget {
     }
   }
   
-
 class FavoriteButton extends StatefulWidget {
-  const FavoriteButton({super.key});
+  final TrainingModel training;
+
+  const FavoriteButton({super.key, required this.training});
 
   @override
   _FavoriteButtonState createState() => _FavoriteButtonState();
@@ -37,6 +39,37 @@ class FavoriteButton extends StatefulWidget {
 
 class _FavoriteButtonState extends State<FavoriteButton> {
   bool isFavorite = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkFavoriteStatus();
+  }
+
+  void _checkFavoriteStatus() async {
+    final dbHelper = FavoritesDbHelper();
+    final favorite = await dbHelper.isFavorite(widget.training.id);
+    setState(() {
+      isFavorite = favorite;
+    });
+  }
+
+  void _toggleFavorite() async {
+    final dbHelper = FavoritesDbHelper();
+    if (isFavorite) {
+      await dbHelper.removeFavorite(widget.training.id);
+    } else {
+      await dbHelper.addFavorite({
+        'trainingId': widget.training.id,
+        'trainingName': widget.training.name,
+        'trainingImage': widget.training.imageAsset,
+      });
+    }
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +80,7 @@ class _FavoriteButtonState extends State<FavoriteButton> {
           isFavorite ? Icons.star : Icons.star_border_outlined,
           color: kPrimaryColor, // Warna ikon
         ),
-        onPressed: () {
-          setState(() {
-            isFavorite = !isFavorite;
-          });
-        },
+        onPressed: _toggleFavorite,
       ),
     );
   }
@@ -91,7 +120,7 @@ class DetailMobilePage extends StatelessWidget {
                             },
                           ),
                         ),
-                        const FavoriteButton(),
+                        FavoriteButton(training: training),
                       ],
                     ),
                   ),
@@ -436,7 +465,6 @@ class _DetailWebPageState extends State<DetailWebPage> {
                                       ),
                                     ],
                                   ),
-                                  const FavoriteButton(),
                                 ],
                               ),
                               Row(
