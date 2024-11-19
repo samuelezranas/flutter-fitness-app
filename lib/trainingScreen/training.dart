@@ -21,7 +21,7 @@ class _TrainingPageState extends State<TrainingPage> {
     _scrollController.addListener(() {
       setState(() {
         // Ubah warna latar belakang dan warna teks berdasarkan posisi scroll
-        if (_scrollController.offset > 100) {
+        if (_scrollController.offset > 50) {
           _appBarTextColor = Colors.white; // Ubah menjadi putih ketika scroll
           _appBarBackgroundColor = kPrimaryColor; // Ubah latar belakang menjadi oranye
         } else {
@@ -87,7 +87,7 @@ class TrainingModelGrid extends StatelessWidget {
       crossAxisCount: gridCount,
       crossAxisSpacing: 16,
       mainAxisSpacing: 16,
-      childAspectRatio: 1, // Ubah sesuai kebutuhan
+      childAspectRatio: 1, 
       shrinkWrap: true, // Menghindari overflow di dalam GridView
       physics: const NeverScrollableScrollPhysics(), // Menonaktifkan scroll di GridView
       children: trainingModelList.map((training) {
@@ -103,14 +103,14 @@ class TrainingModelGrid extends StatelessWidget {
                   right: 20
                 ),
             decoration: BoxDecoration(
-              color: Colors.white, // Warna latar belakang Card
+              color: Colors.grey[75], 
               borderRadius: BorderRadius.circular(15.0), // Membuat sudut rounded
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.2), // Warna shadow
-                  spreadRadius: 2, // Seberapa jauh shadow menyebar
-                  blurRadius: 5, // Seberapa kabur shadow
-                  offset: const Offset(0, 3), // Posisi shadow
+                  spreadRadius: 2, 
+                  blurRadius: 5, 
+                  offset: const Offset(0, 6), // Posisi shadow
                 ),
               ],
             ),
@@ -147,7 +147,7 @@ class TrainingModelGrid extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0), // Padding lebih besar untuk teks bawah
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                     child: Text(
                       training.category,
                       style: const TextStyle(
