@@ -1,4 +1,4 @@
-import 'package:fitness_meal_helper/dietScreen/news.dart';
+import 'package:fitness_meal_helper/newsScreen/news.dart';
 import 'package:fitness_meal_helper/trainingScreen/training.dart';
 import 'package:fitness_meal_helper/homeScreen/home.dart';
 import 'package:flutter/material.dart';

@@ -1,22 +1,11 @@
-import 'package:fitness_meal_helper/widgets/fetch_news.dart';
+import 'package:fitness_meal_helper/newsScreen/web_view.dart';
 import 'package:fitness_meal_helper/widgets/news_model.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+
+import '../widgets/fetch_news.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({super.key});
-
-  // Function to launch the article URL with encoding
-  void _launchURL(String url) async {
-    final Uri uri = Uri.parse(Uri.encodeFull(url)); // Ensure URL encoding
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      // Error message in debug console or UI
-      debugPrint('Could not launch $url');
-      throw 'Could not launch $url';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +45,12 @@ class NewsPage extends StatelessWidget {
                   margin: const EdgeInsets.all(8.0),
                   elevation: 4.0,
                   child: InkWell(
-                    onTap: () => _launchURL(article.url),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WebViewPage(url: article.url),
+                      ),
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Row(
@@ -109,3 +103,4 @@ class NewsPage extends StatelessWidget {
     );
   }
 }
+

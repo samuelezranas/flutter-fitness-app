@@ -32,12 +32,12 @@ class NewsArticle {
 class NewsPage extends StatelessWidget {
   final List<NewsArticle> articles;
 
-  NewsPage({required this.articles});
+  const NewsPage({super.key, required this.articles});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Workout News')),
+      appBar: AppBar(title: const Text('Workout News')),
       body: ListView.builder(
         itemCount: articles.length,
         itemBuilder: (context, index) {
@@ -45,9 +45,9 @@ class NewsPage extends StatelessWidget {
 
           return Card(
             elevation: 5,
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             child: ListTile(
-              contentPadding: EdgeInsets.all(10),
+              contentPadding: const EdgeInsets.all(10),
               leading: article.urlToImage.isNotEmpty
                   ? Image.network(
                       article.urlToImage,
@@ -55,10 +55,10 @@ class NewsPage extends StatelessWidget {
                       height: 80,
                       fit: BoxFit.cover,
                     )
-                  : SizedBox(width: 80, height: 80), // Placeholder if no image
+                  : const SizedBox(width: 80, height: 80), // Placeholder if no image
               title: Text(
                 article.title,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
