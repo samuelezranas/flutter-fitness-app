@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
                 'Timer',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                 'Featured',
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                     'Favorite Workout',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
         'FitMe',
         style: TextStyle(
           color: kPrimaryColor,
-          fontSize: 24,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
